@@ -4,15 +4,21 @@ import pickle
 
 import metrics
 from regression import linear_regression as linreg
-from feature_extractor.extractor import extract
+from feature_extractor.extractor import FeatureExtractor
 
-MAX_DOCUMENTS = 10000
+MAX_DOCUMENTS = 5000
+MAX_FEATURES = 50
+
+FIELDS = ['FullDescription', 'Title', 'LocationRaw']
+
 
 def main():
     print("Reading in the training data")
     train = data_io.get_train_df()[:MAX_DOCUMENTS]
     print("Extracting features")
-    X = extract(train["FullDescription"], max_features=100)
+    feature_extractor = FeatureExtractor(MAX_FEATURES)
+    documents = train['FullDescription']
+    X = feature_extractor.extract(documents)
     y = train["SalaryNormalized"]
     print("Training model")
     linreg.train(X, y)
