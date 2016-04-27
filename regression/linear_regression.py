@@ -1,6 +1,6 @@
 from sklearn import linear_model
 
-regr = linear_model.LassoCV()
+regr = linear_model.LinearRegression()
 
 
 def train(X, y):

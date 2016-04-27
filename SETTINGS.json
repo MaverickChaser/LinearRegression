@@ -2,5 +2,5 @@
     "train_data_path": "Train_rev1.csv",
     "valid_data_path": "Valid_rev1.csv",
     "model_path": "mean_benchmark.pickle",
-    "prediction_path": "mean_benchmark.csv"
+    "prediction_path": "linear_regression.csv"
 }
